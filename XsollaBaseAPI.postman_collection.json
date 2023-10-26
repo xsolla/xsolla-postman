@@ -1,0 +1,1789 @@
+{
+	"info": {
+		"_postman_id": "75861c50-0c75-48ad-aec4-c3703c437702",
+		"name": "Xsolla Base API",
+		"description": "API request for basic integration\n\n[https://developers.xsolla.com/#api](https://developers.xsolla.com/#api)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22986901",
+		"_collection_link": "https://www.postman.com/winter-crescent-743613/workspace/xsolla-api/collection/22986901-75861c50-0c75-48ad-aec4-c3703c437702?action=share&source=collection_link&creator=22986901"
+	},
+	"item": [
+		{
+			"name": "Pay Station API",
+			"item": [
+				{
+					"name": "Token",
+					"item": [
+						{
+							"name": "Create token",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{api_key}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{merchant_id}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"settings\": {\n    \"project_id\": {{project_id}}\n  },\n  \"user\": {\n    \"email\": {\n      \"value\": \"email@example.com\"\n    },\n    \"id\": {\n      \"value\": \"userId12345\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlApi}}/merchant/v2/merchants/{{merchant_id}}/token\n",
+									"host": [
+										"{{baseUrlApi}}"
+									],
+									"path": [
+										"merchant",
+										"v2",
+										"merchants",
+										"{{merchant_id}}",
+										"token\n"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create token",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"settings\": {\n    \"project_id\": {{project_id}}\n  },\n  \"user\": {\n    \"email\": {\n      \"value\": \"email@example.com\"\n    },\n    \"id\": {\n      \"value\": \"userId12345\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/merchant/v2/merchants/{{merchant_id}}/token\n",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"merchant",
+												"v2",
+												"merchants",
+												"{{merchant_id}}",
+												"token\n"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Oct 2023 16:40:52 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Allow",
+											"value": "POST"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Language"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "f904895"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains; preload"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"token\": \"fgs7taMjfVC5RKUQPTk2lVfB8l1r6Nl3_bg_FFFFFF_tb_3D46F5\"\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "[https://developers.xsolla.com/api/pay-station/overview/](https://developers.xsolla.com/api/pay-station/overview/)"
+		},
+		{
+			"name": "In-Game Store & Buy Button API",
+			"item": [
+				{
+					"name": "Payment (client-side)",
+					"item": [
+						{
+							"name": "Create order with specified item Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlStore}}/api/v2/project/{{project_id}}/payment/item/{{item_sku}}",
+									"host": [
+										"{{baseUrlStore}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"project",
+										"{{project_id}}",
+										"payment",
+										"item",
+										"{{item_sku}}"
+									]
+								},
+								"description": "Used for client-to-server integration. Creates an order with a specified item and generates a payment token for it. The created order gets the `new` order status.\n\nThe client IP is used to determine the user’s country, which is then used to apply the corresponding currency and available payment methods for the order.\n\nTo open the payment UI in a new window, use the following link: `https://secure.xsolla.com/paystation4/?token={token}`, where `{token}` is the received token.\n\nFor testing purposes, use this URL: `https://sandbox-secure.xsolla.com/paystation4/?token={token}`.\n\n<div class=\"notice\"><strong>Notice</strong> <br><br> As this method uses the IP to determine the user’s country and select a currency for the order, it is important to only use this method from the client side and not from the server side. Using this method from the server side may cause incorrect currency determination and affect payment methods in <a href=\"https://developers.xsolla.com/doc/pay-station/\">Pay Station</a>. </div>\n"
+							},
+							"response": [
+								{
+									"name": "Order was successfully created.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"currency\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"sandbox\": false,\n  \"quantity\": 1,\n  \"promo_code\": \"<string>\",\n  \"settings\": {\n    \"ui\": {\n      \"theme\": \"63295a9a2e47fab76f7708e1\",\n      \"desktop\": {\n        \"header\": {\n          \"is_visible\": \"<boolean>\",\n          \"visible_logo\": \"<boolean>\",\n          \"visible_name\": \"<boolean>\",\n          \"visible_purchase\": true,\n          \"type\": \"normal\",\n          \"close_button\": false\n        }\n      },\n      \"mode\": \"user_account\",\n      \"user_account\": {\n        \"payment_accounts\": {\n          \"enable\": false\n        },\n        \"info\": \"Page **My account**.\\n\",\n        \"subscriptions\": {\n          \"enable\": false,\n          \"order\": \"<integer>\"\n        }\n      }\n    },\n    \"payment_method\": \"<integer>\",\n    \"return_url\": \"<uri>\",\n    \"redirect_policy\": {\n      \"redirect_conditions\": \"successful\",\n      \"delay\": \"<integer>\",\n      \"status_for_manual_redirection\": \"successful_or_canceled\",\n      \"redirect_button_caption\": \"<string>\"\n    }\n  },\n  \"custom_parameters\": {\n    \"Ut_a7\": \"esse\"\n  },\n  \"shipping_data\": {\n    \"country\": \"GQ\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\",\n    \"state\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\",\n    \"phone\": \"+\",\n    \"comment\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"shipping_method\": {\n    \"id_7\": -91590905.05880535,\n    \"reprehenderit5_\": 9666915,\n    \"ipsum3\": 918711\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/project/:project_id/payment/item/:item_sku",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"project",
+												":project_id",
+												"payment",
+												"item",
+												":item_sku"
+											],
+											"variable": [
+												{
+													"key": "project_id"
+												},
+												{
+													"key": "item_sku"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"order_id\": \"<integer>\",\n  \"token\": \"<string>\"\n}"
+								},
+								{
+									"name": "Item or coupon not found. Make sure the used data is correct.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"currency\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"sandbox\": false,\n  \"quantity\": 1,\n  \"promo_code\": \"<string>\",\n  \"settings\": {\n    \"ui\": {\n      \"theme\": \"63295a9a2e47fab76f7708e1\",\n      \"desktop\": {\n        \"header\": {\n          \"is_visible\": \"<boolean>\",\n          \"visible_logo\": \"<boolean>\",\n          \"visible_name\": \"<boolean>\",\n          \"visible_purchase\": true,\n          \"type\": \"normal\",\n          \"close_button\": false\n        }\n      },\n      \"mode\": \"user_account\",\n      \"user_account\": {\n        \"payment_accounts\": {\n          \"enable\": false\n        },\n        \"info\": \"Page **My account**.\\n\",\n        \"subscriptions\": {\n          \"enable\": false,\n          \"order\": \"<integer>\"\n        }\n      }\n    },\n    \"payment_method\": \"<integer>\",\n    \"return_url\": \"<uri>\",\n    \"redirect_policy\": {\n      \"redirect_conditions\": \"successful\",\n      \"delay\": \"<integer>\",\n      \"status_for_manual_redirection\": \"successful_or_canceled\",\n      \"redirect_button_caption\": \"<string>\"\n    }\n  },\n  \"custom_parameters\": {\n    \"Ut_a7\": \"esse\"\n  },\n  \"shipping_data\": {\n    \"country\": \"GQ\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\",\n    \"state\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\",\n    \"phone\": \"+\",\n    \"comment\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"shipping_method\": {\n    \"id_7\": -91590905.05880535,\n    \"reprehenderit5_\": 9666915,\n    \"ipsum3\": 918711\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/project/:project_id/payment/item/:item_sku",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"project",
+												":project_id",
+												"payment",
+												"item",
+												":item_sku"
+											],
+											"variable": [
+												{
+													"key": "project_id"
+												},
+												{
+													"key": "item_sku"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<integer>\",\n  \"errorCode\": \"<integer>\",\n  \"errorMessage\": \"<string>\",\n  \"transactionId\": \"<string>\"\n}"
+								},
+								{
+									"name": "Invalid error.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"currency\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"sandbox\": false,\n  \"quantity\": 1,\n  \"promo_code\": \"<string>\",\n  \"settings\": {\n    \"ui\": {\n      \"theme\": \"63295a9a2e47fab76f7708e1\",\n      \"desktop\": {\n        \"header\": {\n          \"is_visible\": \"<boolean>\",\n          \"visible_logo\": \"<boolean>\",\n          \"visible_name\": \"<boolean>\",\n          \"visible_purchase\": true,\n          \"type\": \"normal\",\n          \"close_button\": false\n        }\n      },\n      \"mode\": \"user_account\",\n      \"user_account\": {\n        \"payment_accounts\": {\n          \"enable\": false\n        },\n        \"info\": \"Page **My account**.\\n\",\n        \"subscriptions\": {\n          \"enable\": false,\n          \"order\": \"<integer>\"\n        }\n      }\n    },\n    \"payment_method\": \"<integer>\",\n    \"return_url\": \"<uri>\",\n    \"redirect_policy\": {\n      \"redirect_conditions\": \"successful\",\n      \"delay\": \"<integer>\",\n      \"status_for_manual_redirection\": \"successful_or_canceled\",\n      \"redirect_button_caption\": \"<string>\"\n    }\n  },\n  \"custom_parameters\": {\n    \"Ut_a7\": \"esse\"\n  },\n  \"shipping_data\": {\n    \"country\": \"GQ\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\",\n    \"state\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\",\n    \"phone\": \"+\",\n    \"comment\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"shipping_method\": {\n    \"id_7\": -91590905.05880535,\n    \"reprehenderit5_\": 9666915,\n    \"ipsum3\": 918711\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v2/project/:project_id/payment/item/:item_sku",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v2",
+												"project",
+												":project_id",
+												"payment",
+												"item",
+												":item_sku"
+											],
+											"variable": [
+												{
+													"key": "project_id"
+												},
+												{
+													"key": "item_sku"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorCode\": \"<integer>\",\n  \"statusCode\": \"<integer>\",\n  \"errorMessage\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Payment (server-side)",
+					"item": [
+						{
+							"name": "Create Payment Token For Purchase",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{api_key}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{merchant_id}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"user\": {\n    \"id\": {\n      \"value\": \"userId12345\"\n    }\n  },\n  \"purchase\": {\n    \"items\": [\n      {\n        \"sku\": \"SKU001\",\n        \"quantity\": 1\n      }\n    ]\n  }\n}\n"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v2/project/{{project_id}}/admin/payment/token",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"project",
+										"{{project_id}}",
+										"admin",
+										"payment",
+										"token"
+									]
+								},
+								"description": "[https://developers.xsolla.com/api/igs-bb/operation/admin-create-payment-token/](https://developers.xsolla.com/api/igs-bb/operation/admin-create-payment-token/)"
+							},
+							"response": [
+								{
+									"name": "Successful Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user\": {\n    \"id\": {\n      \"value\": \"user-id\"\n    }\n  },\n  \"purchase\": {\n    \"items\": [\n      {\n        \"sku\": \"SKU001\",\n        \"quantity\": 1\n      }\n    ]\n  },\n  \"sandbox\": true\n}\n"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v2/project/{{project_id}}/admin/payment/token",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v2",
+												"project",
+												"{{project_id}}",
+												"admin",
+												"payment",
+												"token"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Oct 2023 03:16:36 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "X-Requested-With, Content-Type, Accept, Origin, Authorization, x-unauthorized-id,x-user,x-xsolla-product-tag"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15724800; includeSubDomains"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"token\": \"zjq35G4pjz5huEYxmvixzbDErrR6X4uv_lc_en_bg_FFFFFF_tb_3D46F5\",\n    \"order_id\": 56955213\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "[https://developers.xsolla.com/api/igs-bb/overview/#section/Overview](https://developers.xsolla.com/api/igs-bb/overview/#section/Overview)"
+		},
+		{
+			"name": "Login API",
+			"item": [
+				{
+					"name": "JWT",
+					"item": [
+						{
+							"name": "Register new user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"myUsername\",\n  \"password\": \"mySuperSecretPassword123!\",\n  \"email\": \"myusername@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlLogin}}/api/user?projectId={{LoginProjectID}}&login_url=https://livedemo.xsolla.com/xsolla-login/useraccount",
+									"host": [
+										"{{baseUrlLogin}}"
+									],
+									"path": [
+										"api",
+										"user"
+									],
+									"query": [
+										{
+											"key": "projectId",
+											"value": "{{LoginProjectID}}",
+											"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+										},
+										{
+											"key": "login_url",
+											"value": "https://livedemo.xsolla.com/xsolla-login/useraccount"
+										}
+									]
+								},
+								"description": "Creates a new user.\n\n* If you store user data at Xsolla or custom storage, the user will receive an account confirmation [message](https://developers.xsolla.com/doc/login/customization/email-customization/).\n* If you store user data at PlayFab, the user will *not* receive an account confirmation [message](https://developers.xsolla.com/doc/login/customization/email-customization/).\n* If you store user data at Firebase, the user will receive an account confirmation message from Firebase side.\n\nSee the [Comparison of user data storages](https://developers.xsolla.com/doc/login/references/users-storages-comparison/) page for more information about user data storages.\n"
+							},
+							"response": [
+								{
+									"name": "OK (Account confirmation is disabled)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"accept_consent\": \"<boolean>\",\n  \"fields\": {},\n  \"promo_email_agreement\": 1\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"login_url\": \"<string>\"\n}"
+								},
+								{
+									"name": "No Content (Account confirmation is enabled)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"accept_consent\": \"<boolean>\",\n  \"fields\": {},\n  \"promo_email_agreement\": 1\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"accept_consent\": \"<boolean>\",\n  \"fields\": {},\n  \"promo_email_agreement\": 1\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"accept_consent\": \"<boolean>\",\n  \"fields\": {},\n  \"promo_email_agreement\": 1\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								},
+								{
+									"name": "Unprocessable Entity",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"accept_consent\": \"<boolean>\",\n  \"fields\": {},\n  \"promo_email_agreement\": 1\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								},
+								{
+									"name": "Too Many Requests",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\",\n  \"accept_consent\": \"<boolean>\",\n  \"fields\": {},\n  \"promo_email_agreement\": 1\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Resend account confirmation email",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"myUsername\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlLogin}}/api/user/resend_confirmation_link?projectId={{LoginProjectID}}",
+									"host": [
+										"{{baseUrlLogin}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"resend_confirmation_link"
+									],
+									"query": [
+										{
+											"key": "projectId",
+											"value": "{{LoginProjectID}}",
+											"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+										}
+									]
+								},
+								"description": "Resends an account confirmation email to a user. To complete account confirmation, the user should follow the link in the email."
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user/resend_confirmation_link?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user",
+												"resend_confirmation_link"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user/resend_confirmation_link?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user",
+												"resend_confirmation_link"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user/resend_confirmation_link?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user",
+												"resend_confirmation_link"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								},
+								{
+									"name": "Unprocessable Entity",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user/resend_confirmation_link?projectId=<uuid>&login_url=<string>&payload=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user",
+												"resend_confirmation_link"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Auth by username and password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "{{userAgent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"myUsername\",\n  \"password\": \"mySuperSecretPassword123!\",\n  \"remember_me\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlLogin}}/api/login?projectId={{LoginProjectID}}",
+									"host": [
+										"{{baseUrlLogin}}"
+									],
+									"path": [
+										"api",
+										"login"
+									],
+									"query": [
+										{
+											"key": "projectId",
+											"value": "{{LoginProjectID}}",
+											"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+										}
+									]
+								},
+								"description": "Authenticates the user by the username/email and password specified."
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"remember_me\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/login?projectId=<uuid>&login_url=<string>&payload=<string>&with_logout=0",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"login"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												},
+												{
+													"key": "with_logout",
+													"value": "0",
+													"description": "Shows whether to deactivate the existing user JWT values and activate the one generated by this call. Can have the following values:\n* `1` to deactivate the existing values and activate a new one,\n* `0` to keep the existing values activated.\n"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"login_url\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"remember_me\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/login?projectId=<uuid>&login_url=<string>&payload=<string>&with_logout=0",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"login"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												},
+												{
+													"key": "with_logout",
+													"value": "0",
+													"description": "Shows whether to deactivate the existing user JWT values and activate the one generated by this call. Can have the following values:\n* `1` to deactivate the existing values and activate a new one,\n* `0` to keep the existing values activated.\n"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"remember_me\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/login?projectId=<uuid>&login_url=<string>&payload=<string>&with_logout=0",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"login"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												},
+												{
+													"key": "with_logout",
+													"value": "0",
+													"description": "Shows whether to deactivate the existing user JWT values and activate the one generated by this call. Can have the following values:\n* `1` to deactivate the existing values and activate a new one,\n* `0` to keep the existing values activated.\n"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"remember_me\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/login?projectId=<uuid>&login_url=<string>&payload=<string>&with_logout=0",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"login"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												},
+												{
+													"key": "with_logout",
+													"value": "0",
+													"description": "Shows whether to deactivate the existing user JWT values and activate the one generated by this call. Can have the following values:\n* `1` to deactivate the existing values and activate a new one,\n* `0` to keep the existing values activated.\n"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								},
+								{
+									"name": "Unprocessable Entity",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"remember_me\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/login?projectId=<uuid>&login_url=<string>&payload=<string>&with_logout=0",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"login"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												},
+												{
+													"key": "with_logout",
+													"value": "0",
+													"description": "Shows whether to deactivate the existing user JWT values and activate the one generated by this call. Can have the following values:\n* `1` to deactivate the existing values and activate a new one,\n* `0` to keep the existing values activated.\n"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								},
+								{
+									"name": "Too Many Requests",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"remember_me\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/login?projectId=<uuid>&login_url=<string>&payload=<string>&with_logout=0",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"login"
+											],
+											"query": [
+												{
+													"key": "projectId",
+													"value": "<uuid>",
+													"description": "(Required) Login project ID from [Publisher Account](https://publisher.xsolla.com/)."
+												},
+												{
+													"key": "login_url",
+													"value": "<string>",
+													"description": "URL to redirect the user to after account confirmation, successful authentication, two-factor authentication configuration, or password reset confirmation. Must be identical to the **Callback URL** specified in the **URL** block of [Publisher Account](https://publisher.xsolla.com/). To find it, go to **Login > your Login project** and select the **Callback URLs** section in the upper block of the navigation page. **Required** if there are several Callback URLs."
+												},
+												{
+													"key": "payload",
+													"value": "<string>",
+													"description": "Your custom data. The value of the parameter will be returned in the `payload` claim of the **user JWT**."
+												},
+												{
+													"key": "with_logout",
+													"value": "0",
+													"description": "Shows whether to deactivate the existing user JWT values and activate the one generated by this call. Can have the following values:\n* `1` to deactivate the existing values and activate a new one,\n* `0` to keep the existing values activated.\n"
+												}
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"description\": \"<string>\",\n    \"details\": {}\n  }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrlApi",
+			"value": "https://api.xsolla.com",
+			"type": "string"
+		},
+		{
+			"key": "baseUrlStore",
+			"value": "https://store.xsolla.com",
+			"type": "string"
+		},
+		{
+			"key": "baseUrlLogin",
+			"value": "https://login.xsolla.com",
+			"type": "string"
+		},
+		{
+			"key": "userAgent",
+			"value": "XsollaPostmanCollection",
+			"type": "string"
+		}
+	]
+}
